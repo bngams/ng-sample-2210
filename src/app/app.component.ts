@@ -15,6 +15,7 @@ type Picture = {
 export class AppComponent implements OnInit {
   title = 'my-app';
   date = new Date();
+  customDate!: Date;
   picture: Picture = {
     url: 'https://picsum.photos/200',
     alt: 'Description'
@@ -27,13 +28,19 @@ export class AppComponent implements OnInit {
   ];
   iconBgColor = "black";
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
+    // Keep constructor for DI => use ngOnInit()
+    // this.customDate = new Date();
   }
 
-  buttonClicked(): void {
-    console.log('Button clicked!');
+  ngOnInit(): void {
+    this.customDate = new Date();
+  }
+
+  buttonClicked(eventData: MouseEvent, pElement: HTMLParagraphElement, title: string): void {
+    console.log('title is already bind here', this.title);
+    alert('Button clicked!');
+    console.log('buttonClicked', eventData, pElement, title, this.title);
   }
 
   toggleButtonStatus(): void {

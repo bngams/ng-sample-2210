@@ -16,7 +16,7 @@ import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
 
   // imports features
   imports: [
-    BrowserModule,
+    BrowserModule, // (CommonModule)
     AppRoutingModule
   ],
 
