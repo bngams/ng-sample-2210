@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MATERIAL_MODULES } from './material.barrel';
+import { UIModule } from './modules/ui/ui.module';
 
 // TS Decorator
 // @NgModule <=> ES Module
@@ -17,7 +20,9 @@ import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
   // imports features
   imports: [
     BrowserModule, // (CommonModule)
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    UIModule
   ],
 
   // exports features to be loaded in other modules imports
