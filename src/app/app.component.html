@@ -69,6 +69,51 @@
   <p>Date : {{ date | date: 'dd/MM/YYYY' }}</p>
   <p>Custom pipe exponential strength: {{ 2 | exponentialStrength:10 }}</p>
 
+  <h2>Event binding</h2>
+  <p>Bind event from an HTMLELement => call a controller method</p>
+  <button (click)="buttonClicked()">Click me!</button>
+
+  <h2>Property binding [property]</h2>
+  <!-- html dynamic attribute -->
+  <img src="{{ picture.url }}" alt="{{ picture.alt }}">
+  <img [src]="picture.url" [alt]="picture.alt">
+  <p>Attributes managed by Angular (bind property)</p>
+  <!-- static html attributes -->
+  <button disabled="{{ buttonDisabled }}">Btn status</button>
+  <button (click)="toggleButtonStatus()">Toggle status</button>
+  <!-- anuglar can manage attribute  -->
+  <button [disabled]="buttonDisabled">Btn disable managed by angular</button>
+
+  <h2>Attributes directives</h2>
+  <p [ngClass]="{'highlight': buttonDisabled}">Apply some classes with ngClass</p>
+  <p [ngClass]="{'hide': buttonDisabled}">Apply some classes with ngClass</p>
+
+  <h2>Structural directives</h2>
+  <h3>*ngIf</h3>
+  <p *ngIf="buttonDisabled">Button is disabled</p>
+  <p *ngIf="!buttonDisabled">Button is ok</p>
+  <ng-template [ngIf]="buttonDisabled">
+    <p>Button is disabled</p>
+  </ng-template>
+
+  <h3>*ngFor</h3>
+  <ul>
+    <li *ngFor="let w of words">
+      {{ w }}
+    </li>
+  </ul>
+
+  <h2 #myH2Title>Template variables</h2>
+  <!-- Object -->
+  <p>Use my template variable myH2Title {{ myH2Title.innerText }}</p> 
+  <button (click)="receiveTemplateVar(myH2Title)">Pass template variable to controller </button>
+  <p *ngIf="buttonDisabled;else elseTemplate">
+    Button is disabled
+  </p>
+  <ng-template #elseTemplate>
+    Other template
+  </ng-template>
+
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

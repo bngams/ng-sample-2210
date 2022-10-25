@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+type Picture = {
+  url:string;
+  alt: string;
+}
+
 // TS Decorator
 // Component config
 @Component({
@@ -9,13 +14,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'my-app';
-  customDate!: Date;
   date = new Date();
+  picture: Picture = {
+    url: 'https://picsum.photos/200',
+    alt: 'Description'
+  };
+  buttonDisabled = true;
+  words = [
+    'hello',
+    'world',
+    '!'
+  ];
+  iconBgColor = "black";
 
-  constructor() {
+  constructor() { }
+
+  ngOnInit(): void {
   }
 
-  ngOnInit() {
-    this.customDate = new Date();
+  buttonClicked(): void {
+    console.log('Button clicked!');
+  }
+
+  toggleButtonStatus(): void {
+    this.buttonDisabled = !this.buttonDisabled;
+  }
+
+  receiveTemplateVar(myH2Title: HTMLHeadingElement): void {
+    console.log()
   }
 }
