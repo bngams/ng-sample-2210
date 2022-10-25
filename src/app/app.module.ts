@@ -7,6 +7,9 @@ import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MATERIAL_MODULES } from './material.barrel';
 import { UIModule } from './modules/ui/ui.module';
+import { StartComponent } from './pages/start/start.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HomeComponent } from './pages/home/home.component';
 
 // TS Decorator
 // @NgModule <=> ES Module
@@ -14,7 +17,10 @@ import { UIModule } from './modules/ui/ui.module';
   // declares HTMLElement, declares HTML Syntax
   declarations: [
     AppComponent,
-    ExponentialStrengthPipe
+    ExponentialStrengthPipe,
+    StartComponent,
+    NotFoundComponent,
+    HomeComponent
   ],
 
   // imports features
