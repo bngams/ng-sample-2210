@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -18,8 +19,14 @@ import { Component, OnInit } from '@angular/core';
         <li class="menu-item">
           <a href="#" routerLink="/start">Start</a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item" *ngIf="authService.isLoggedIn">
           <a href="#" routerLink="/admin">Admin</a>
+        </li>
+        <li class="menu-item"  *ngIf="!authService.isLoggedIn">
+          <a href="#" routerLink="/auth/login">Login</a>
+        </li>
+        <li class="menu-item"  *ngIf="authService.isLoggedIn">
+          <a href="javascript:void(0)" (click)="authService.logout()">Logout</a>
         </li>
       </ul>
       <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
@@ -55,13 +62,22 @@ import { Component, OnInit } from '@angular/core';
         }
       }
     `
-  ]
+  ],
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isLoggedInFromObservable = false;
+
+  constructor(readonly authService: AuthService) { }
 
   ngOnInit(): void {
+    
+  }
+
+  subscribeToIsLoggedInSubject(): void {
+    this.authService.isLoggedInObservable.subscribe((value) => {
+      this.isLoggedInFromObservable = value;
+    })
   }
 
 }

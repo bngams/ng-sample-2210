@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'start', component: StartComponent}, // TODO: can we make :name param optionnal?
   { path: 'start/:name', component: StartComponent},
   { path: 'home', component: HomeComponent},
+  { path: 'auth', data: { preload: true }, loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
   { path: 'admin', canLoad: [AdminGuard], data: { preload: true }, loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', component: NotFoundComponent},
 ];

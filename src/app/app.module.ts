@@ -10,6 +10,7 @@ import { UIModule } from './modules/ui/ui.module';
 import { StartComponent } from './pages/start/start.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthService } from './modules/auth/services/auth.service';
 
 // TS Decorator
 // @NgModule <=> ES Module
@@ -35,7 +36,8 @@ import { HomeComponent } from './pages/home/home.component';
   // exports: []
 
   // configure DI
-  providers: [],
+  providers: [
+  ],
 
   // app launch
   bootstrap: [AppComponent]
