@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'start/:name', component: StartComponent},
   { path: 'home', component: HomeComponent},
   { path: 'auth', data: { preload: true }, loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'products', data: { preload: true }, loadChildren: () => import('./modules/product/product.module').then(m => m.ProductModule) },
   { path: 'admin', canLoad: [AdminGuard], data: { preload: true }, loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
   { path: '**', component: NotFoundComponent},
 ];

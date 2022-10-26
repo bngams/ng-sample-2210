@@ -14,16 +14,19 @@ import { AuthService } from '../../auth/services/auth.service';
       <!-- ul>li.menu-item*2 -->
       <ul>
         <li class="menu-item">
-          <a href="#" [routerLink]="'/home'">Home</a>
+          <a href="#" [routerLink]="'/home'" routerLinkActive="active">Home</a>
         </li>
         <li class="menu-item">
-          <a href="#" routerLink="/start">Start</a>
+          <a href="#" routerLink="/start" routerLinkActive="active">Start</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" routerLink="/products" routerLinkActive="active">Products</a>
         </li>
         <li class="menu-item" *ngIf="authService.isLoggedIn">
-          <a href="#" routerLink="/admin">Admin</a>
+          <a href="#" routerLink="/admin" routerLinkActive="active">Admin</a>
         </li>
         <li class="menu-item"  *ngIf="!authService.isLoggedIn">
-          <a href="#" routerLink="/auth/login">Login</a>
+          <a href="#" routerLink="/auth/login" routerLinkActive="active">Login</a>
         </li>
         <li class="menu-item"  *ngIf="authService.isLoggedIn">
           <a href="javascript:void(0)" (click)="authService.logout()">Logout</a>
@@ -58,6 +61,11 @@ import { AuthService } from '../../auth/services/auth.service';
           a {
             color: #fff;
             text-decoration: none;
+          }
+
+          &.active {
+            font-weight: bolder;
+            text-decoration: underline;
           }
         }
       }
