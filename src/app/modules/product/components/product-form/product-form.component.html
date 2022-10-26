@@ -1,3 +1,6 @@
+<span *ngIf="!productForm.valid">
+ {{ productForm.controls['name'].errors | json }}
+</span>
 <form [formGroup]="productForm" class="example-form" (ngSubmit)="submit()">
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
@@ -7,5 +10,5 @@
     <mat-label>Price</mat-label>
     <input matInput placeholder="price..." name="price" formControlName="price">
   </mat-form-field>
-  <button type="submit" mat-raised-button color="primary">Submit</button>
+  <button type="submit" mat-raised-button color="primary" [disabled]="!productForm.valid">Submit</button>
 </form>
