@@ -11,6 +11,7 @@ import { StartComponent } from './pages/start/start.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthService } from './modules/auth/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 // TS Decorator
 // @NgModule <=> ES Module
@@ -29,6 +30,7 @@ import { AuthService } from './modules/auth/services/auth.service';
     BrowserModule, // (CommonModule)
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     UIModule
   ],
 

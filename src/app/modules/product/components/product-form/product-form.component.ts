@@ -12,7 +12,7 @@ export class ProductFormComponent implements OnInit {
   submitEvent: EventEmitter<Product> = new EventEmitter();
 
   productForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(4)]),
+    title: new FormControl('', [Validators.required, Validators.minLength(4)]),
     price: new FormControl('', [Validators.required]),
   });
 
